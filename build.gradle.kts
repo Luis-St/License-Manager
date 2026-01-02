@@ -11,7 +11,7 @@ version = "1.1.0"
 
 var mavenUsername: String? = null
 var mavenPassword: String? = null
-val file = rootProject.file("./../credentials.properties")
+val file: File = rootProject.file("./../credentials.properties")
 if (file.exists()) {
 	val properties = Properties()
 	file.inputStream().use { properties.load(it) }
