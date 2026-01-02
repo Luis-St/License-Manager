@@ -6,11 +6,11 @@ plugins {
 	kotlin("jvm") version "2.2.10"
 	id("java-gradle-plugin")
 	id("maven-publish")
-	id("net.luis.lm") version "1.1.0"
+	id("net.luis.lm") version "1.2.0"
 }
 
 group = "net.luis"
-version = "1.1.0"
+version = "1.2.0"
 
 var mavenUsername: String? = null
 var mavenPassword: String? = null
