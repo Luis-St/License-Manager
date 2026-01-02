@@ -1,9 +1,12 @@
+import net.luis.lm.LineEnding
+import java.time.Year
 import java.util.Properties
 
 plugins {
 	kotlin("jvm") version "2.2.10"
 	id("java-gradle-plugin")
 	id("maven-publish")
+	id("net.luis.lm") version "1.1.0"
 }
 
 group = "net.luis"
@@ -30,6 +33,20 @@ repositories {
 dependencies {
 	implementation(gradleApi())
 	implementation(localGroovy())
+}
+
+licenseManager {
+	header = "header.txt"
+	lineEnding = LineEnding.LF
+	spacingAfterHeader = 1
+	
+	variable("year", Year.now())
+	variable("author", "Luis Staudt")
+	variable("project", rootProject.name)
+	
+	sourceSets = listOf("main", "test")
+	
+	include("**/*.kt")
 }
 
 gradlePlugin {
