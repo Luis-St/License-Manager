@@ -26,7 +26,7 @@ pluginManagement {
 		gradlePluginPortal()
 		mavenCentral()
 		maven {
-			url = uri("https://maven.luis-st.net/plugins/")
+			url = uri("https://artifact.luis-st.net/maven/plugins/")
 		}
 	}
 }

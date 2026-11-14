@@ -12,15 +12,13 @@ plugins {
 group = "net.luis"
 version = "1.2.0"
 
-var mavenUsername: String? = null
-var mavenPassword: String? = null
+var artifactoryToken: String? = null
 val file: File = rootProject.file("./../credentials.properties")
 if (file.exists()) {
 	val properties = Properties()
 	file.inputStream().use { properties.load(it) }
 	
-	mavenUsername = properties.getProperty("username")
-	mavenPassword = properties.getProperty("password")
+	artifactoryToken = properties.getProperty("token")
 } else {
 	throw GradleException("No credentials.properties file found.")
 }
@@ -69,16 +67,16 @@ publishing {
 		}
 	}
 	repositories {
-		if (mavenUsername != null && mavenPassword != null) {
+		if (artifactoryToken != null) {
 			maven {
-				url = uri("https://maven.luis-st.net/plugins/")
+				url = uri("https://artifact.luis-st.net/maven/plugins/")
 				credentials {
-					username = mavenUsername
-					password = mavenPassword
+					username = "__token__"
+					password = artifactoryToken
 				}
 			}
 		} else {
-			System.err.println("No credentials provided. Publishing to maven.luis-st.net not possible.")
+			System.err.println("No credentials provided. Publishing to artifact.luis-st.net not possible.")
 		}
 	}
 }
