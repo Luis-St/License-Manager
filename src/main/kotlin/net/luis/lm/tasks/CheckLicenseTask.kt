@@ -10,6 +10,7 @@ package net.luis.lm.tasks
 
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.TaskAction
+import org.gradle.work.DisableCachingByDefault
 import java.io.File
 import java.util.regex.Pattern
 
@@ -20,6 +21,7 @@ import java.util.regex.Pattern
  *
  * @author Luis-St
  */
+@DisableCachingByDefault(because = "Only verifies source files and produces no output")
 open class CheckLicenseTask : LicenseTask() {
 	
 	@TaskAction

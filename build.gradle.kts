@@ -3,7 +3,7 @@ import java.time.Year
 import java.util.Properties
 
 plugins {
-	kotlin("jvm") version "2.2.10"
+	kotlin("jvm") version "2.4.21"
 	id("java-gradle-plugin")
 	id("maven-publish")
 	id("net.luis.lm") version "1.2.0"
@@ -30,6 +30,10 @@ repositories {
 dependencies {
 	implementation(gradleApi())
 	implementation(localGroovy())
+}
+
+kotlin {
+	jvmToolchain(25)
 }
 
 licenseManager {

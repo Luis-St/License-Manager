@@ -16,6 +16,7 @@ import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity
+import org.gradle.work.DisableCachingByDefault
 import java.io.File
 import java.util.regex.Pattern
 
@@ -25,6 +26,7 @@ import java.util.regex.Pattern
  *
  * @author Luis-St
  */
+@DisableCachingByDefault(because = "Operates directly on source files")
 abstract class LicenseTask : DefaultTask() {
 	
 	@get:Internal

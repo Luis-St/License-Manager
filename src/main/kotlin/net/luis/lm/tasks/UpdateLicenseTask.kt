@@ -11,6 +11,7 @@ package net.luis.lm.tasks
 import net.luis.lm.LineEnding
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.TaskAction
+import org.gradle.work.DisableCachingByDefault
 import java.io.File
 import java.util.regex.Pattern
 
@@ -21,6 +22,7 @@ import java.util.regex.Pattern
  *
  * @author Luis-St
  */
+@DisableCachingByDefault(because = "Modifies source files in place")
 open class UpdateLicenseTask : LicenseTask() {
 	
 	@TaskAction
