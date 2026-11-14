@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "net.luis"
-version = System.getenv("VERSION")?.removePrefix("v") ?: "1.2.0"
+version = System.getenv("VERSION")?.removePrefix("v") ?: "1.2.1"
 
 // The publish workflow passes the token as environment variable, local builds read it from credentials.properties
 var artifactoryToken: String? = System.getenv("ARTIFACTORY_TOKEN")
