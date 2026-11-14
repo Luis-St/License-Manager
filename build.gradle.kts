@@ -10,17 +10,16 @@ plugins {
 }
 
 group = "net.luis"
-version = "1.2.0"
+version = System.getenv("VERSION")?.removePrefix("v") ?: "1.2.0"
 
-var artifactoryToken: String? = null
+// The publish workflow passes the token as environment variable, local builds read it from credentials.properties
+var artifactoryToken: String? = System.getenv("ARTIFACTORY_TOKEN")
 val file: File = rootProject.file("./../credentials.properties")
-if (file.exists()) {
+if (artifactoryToken == null && file.exists()) {
 	val properties = Properties()
 	file.inputStream().use { properties.load(it) }
 	
 	artifactoryToken = properties.getProperty("token")
-} else {
-	throw GradleException("No credentials.properties file found.")
 }
 
 repositories {
